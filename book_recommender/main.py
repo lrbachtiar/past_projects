@@ -1,6 +1,7 @@
 # page: https://towardsdatascience.com/building-a-book-recommendation-system-using-keras-1fba34180699
 
 import pandas as pd
+import numpy as np
 
 from sklearn.model_selection import train_test_split
 from sklearn.manifold import TSNE
@@ -51,3 +52,8 @@ predictions = np.array([a[0] for a in predictions])
 recommended_book_ids = (-predictions).argsort()[:5]
 print(recommended_book_ids)
 print(predictions[recommended_book_ids])
+
+books = pd.read_csv('data/books.csv')
+#books.head()
+predicted_books = books[books['id'].isin(recommended_book_ids)]
+print(books[books['id'].isin(recommended_book_ids)])

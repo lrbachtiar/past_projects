@@ -45,3 +45,5 @@ for col in ['ac_type', 'location', 'operator', 'route', 'summary']:
 data_dt = data_nan.copy()
 data_dt['dt'] = data_dt['date'] + ' ' + data_dt['time']
 data_dt['dt'] = pd.to_datetime(data_dt['dt'], format='%B %d, %Y %H%M')
+
+raw_data = pd.read_csv('data/API_IS.AIR.DPRT_DS2_en_csv_v2_6211.csv')
